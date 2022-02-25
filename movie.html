@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+  <style>
+
+    .button {
+  border: black;
+  color: black;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+}
+.mess {
+  font-size: 20px;
+}
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <h1 id="title" class="text-center">Welcome to my website.</h1>
+  <form>
+    <label for="movie">Movie Title:</label>
+    <input class="rate" type="text" id="movie">
+    <label for="rating">Rating:</label>
+    <input class="rate" type="number" id="rating" min="0" max="5">
+  </form>
+  <button>Submit your movie rating!</button>
+
+  <h2> Movies and ratings</h2>
+  <ol></ol>
+  </div>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+  //code here
+  $(function () {
+
+    let form = $("form");
+
+    $("button").on('click', function () {
+        console.log("clicked");
+       let $new = $("<li>");
+       let title = $('input').eq(0).val();
+       let rating = $('input').eq(1).val();
+       let $but = $("<button>");
+       $new.text(title + " " + rating);
+
+        /*
+      let title = $('input').eq(0).val();
+      let rating = $('input').eq(1).val();
+    this.append("<li></li>")
+    */
+    $("ol").append($new);
+    $but.addClass('button');
+    $but.text("remove");
+    $new.addClass('mess');
+    $new.append($but);
+
+    $('li').click(function () {
+      $(this).remove();
+    })
+    
+  
+    })
+
+
+  });
+</script>
+</body>
+
+</html>
